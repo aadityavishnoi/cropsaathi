@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Saathi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>🌾 Crop Saathi</h2>
+    <p class="tagline">Farmer ↔ Buyer Digital Mandi</p>
+
+    <!-- ROLE SWITCH -->
+    <select id="roleSelect" onchange="switchRole()" class="role-switch">
+      <option value="farmer">👨‍🌾 Farmer</option>
+      <option value="buyer">🧑‍💼 Buyer</option>
+    </select>
+
+    <!-- NAV -->
+    <button data-role="farmer" onclick="showPage('dashboard')">📊 Dashboard</button>
+    <button data-role="farmer" onclick="showPage('emandi')">🌾 Sell Crops</button>
+    <button data-role="buyer"  onclick="showPage('emandi')">🏪 Buy Crops</button>
+    <button data-role="buyer"  onclick="showPage('bids')">📨 Buyer Bids</button>
+    <button data-role="farmer" onclick="showPage('doctor')">🧑‍⚕️ Crop Doctor</button>
+    <button data-role="farmer" onclick="showPage('profit')">💰 Profit</button>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active">
+      <h1>Live Farming Dashboard</h1>
+
+      <div class="cards">
+        <div class="card">
+          🌡️ तापमान
+          <b class="warn" id="temp">--</b>
+          <span>सामान्य से अधिक</span>
+        </div>
+
+        <div class="card">
+          💧 नमी
+          <b class="good" id="humidity">--</b>
+          <span>फसल के लिए ठीक</span>
+        </div>
+
+        <div class="card">
+          🌱 मृदा नमी
+          <b class="danger" id="soil">--</b>
+          <span>सिंचाई की ज़रूरत</span>
+        </div>
+
+        <div class="card">
+          🌾 NDVI
+          <b class="good" id="ndvi">--</b>
+          <span>फसल स्थिति</span>
+        </div>
+      </div>
+
+      <div class="alert" id="alert">Loading...</div>
+    </section>
+
+    <!-- E-MANDI -->
+    <section id="emandi" class="page">
+      <h1>ई-मंडी</h1>
+      <div class="card" id="cropCard">Loading...</div>
+    </section>
+
+    <!-- BIDS -->
+    <section id="bids" class="page">
+      <h1>Buyer Bids</h1>
+      <div class="card" id="bidsCard">Loading...</div>
+    </section>
+
+    <!-- CROP DOCTOR -->
+    <section id="doctor" class="page">
+      <h1>फसल डॉक्टर</h1>
+      <div class="card">
+        Disease: Leaf Blight<br>
+        Severity: Medium<br><br>
+        ✔️ Fungicide spray in 3 days<br>
+        ✔️ Avoid over-irrigation
+      </div>
+    </section>
+
+    <!-- PROFIT -->
+    <section id="profit" class="page">
+      <h1>मुनाफा खाता</h1>
+      <div class="card">
+        Cost: ₹68,000<br>
+        Revenue: ₹1,02,000<br><br>
+        <b>Net Profit: ₹34,000</b>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
